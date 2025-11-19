@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Dylan Dealmaker – High Ticket Closer</title>
+  <title>Your leads aren’t the problem. Your closer is. | Dylan Dealmaker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Dylan Dealmaker helps online brands close more high-ticket deals with a premium, white-glove sales experience." />
+  <meta
+    name="description"
+    content="Founders & operators: if your pipeline is full but revenue is inconsistent, Dylan Dealmaker takes over your high-ticket calls so you stop burning leads, stop living on Zoom, and start scaling like an actual business."
+  />
+
+  <!-- Open Graph (link previews) -->
+  <meta property="og:title" content="Your leads aren’t the problem. Your closer is." />
+  <meta
+    property="og:description"
+    content="High-ticket closer for coaches, consultants and B2B teams. If your growth depends on you taking every sales call, that’s the problem I solve."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dylandealmaker-site.github.io/Dylan-Dealmaker/" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -115,6 +127,42 @@
       letter-spacing: 0.16em;
     }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted-soft);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
     .btn-nav {
       padding: 0.55rem 1.6rem;
       border-radius: 999px;
@@ -136,6 +184,12 @@
       transform: translateY(-1px) scale(1.02);
       box-shadow: 0 18px 40px rgba(0, 0, 0, 1),
                   0 0 30px rgba(212, 175, 55, 0.7);
+    }
+
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+      }
     }
 
     /* HERO */
@@ -186,7 +240,7 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 1.1rem;
+      margin-bottom: 0.7rem;
     }
 
     .hero-tagline span {
@@ -195,23 +249,41 @@
 
     .hero-title {
       font-family: "Playfair Display", serif;
-      font-size: clamp(2.7rem, 4vw, 3.3rem);
-      line-height: 1.1;
-      margin-bottom: 0.7rem;
+      font-size: clamp(2.8rem, 4.2vw, 3.5rem);
+      line-height: 1.08;
+      margin-bottom: 0.8rem;
       letter-spacing: 0.02em;
     }
 
     .hero-line-text {
-      font-size: 1rem;
+      font-size: 0.98rem;
       color: var(--muted);
-      margin-bottom: 1.4rem;
-      max-width: 27rem;
+      margin-bottom: 1.1rem;
+      max-width: 28rem;
+    }
+
+    .hero-stats-badge {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.1rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.25), rgba(5, 5, 10, 0.95));
+      font-size: 0.78rem;
+      color: var(--muted-soft);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-stats-badge span {
+      color: var(--gold);
+      font-weight: 500;
     }
 
     .hero-bullets {
       list-style: none;
       padding: 0;
-      margin: 0 0 1.9rem;
+      margin: 0 0 1.6rem;
       font-size: 0.9rem;
       color: var(--muted);
     }
@@ -280,6 +352,7 @@
       font-size: 0.8rem;
       color: var(--muted);
       margin-top: 0.7rem;
+      max-width: 26rem;
     }
 
     .hero-note span {
@@ -431,7 +504,7 @@
       color: var(--muted);
     }
 
-    /* WHO I WORK WITH */
+    /* WHO I WORK WITH / PAIN */
 
     .who-grid {
       max-width: 1120px;
@@ -551,6 +624,17 @@
       color: var(--muted-soft);
     }
 
+    .proof-result {
+      margin-top: 0.45rem;
+      font-size: 0.8rem;
+      color: var(--muted-soft);
+    }
+
+    .proof-result span {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
     /* HOW IT WORKS */
 
     .process-grid {
@@ -655,6 +739,61 @@
       color: var(--gold);
     }
 
+    /* MOBILE STICKY CTA */
+
+    .mobile-cta {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
+      background: rgba(5, 5, 10, 0.96);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: none;
+    }
+
+    .mobile-cta-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.7rem 1.3rem 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+    }
+
+    .mobile-cta-text {
+      font-size: 0.75rem;
+      color: var(--muted-soft);
+    }
+
+    .mobile-cta-text span {
+      color: var(--gold);
+    }
+
+    .mobile-cta-button {
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--gold);
+      background: linear-gradient(135deg, #f7d774, var(--gold));
+      color: #1b1306;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 640px) {
+      .mobile-cta {
+        display: block;
+      }
+      body {
+        padding-bottom: 3.2rem; /* space so content not hidden behind bar */
+      }
+    }
+
     /* REVEAL ANIMATIONS */
 
     .reveal {
@@ -743,9 +882,18 @@
           <div class="nav-role">High Ticket Closer</div>
         </div>
       </div>
-      <a href="https://calendly.com/dylandealmaker" target="_blank" rel="noopener noreferrer" class="btn-nav">
-        Book a call
-      </a>
+
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#who">Who</a>
+          <a href="#proof">Proof</a>
+          <a href="#process">How it works</a>
+          <a href="#contact">Book a call</a>
+        </div>
+        <a href="https://calendly.com/dylandealmaker" target="_blank" rel="noopener noreferrer" class="btn-nav">
+          Fix my sales bottleneck
+        </a>
+      </div>
     </nav>
   </header>
 
@@ -761,31 +909,39 @@
       <div class="hero-inner">
         <div class="reveal">
           <div class="hero-tagline">
-            <span>Premium sales partner</span> for serious online brands
+            <span>For coaches, consultants & B2B teams</span> who are done babysitting sales.
           </div>
           <h1 class="hero-title">
-            You bring the leads.<br />I close the deals.
+            Your leads aren’t the problem.<br />Your closer is.
           </h1>
           <p class="hero-line-text">
-            High-ticket clients. Clean conversations. A sales experience your brand can be proud of.
+            If you’re still the one taking the important calls, your growth is capped. I step in, take over your
+            high-ticket pipeline, and stop revenue from depending on your calendar.
           </p>
+
+          <div class="hero-stats-badge">
+            <span>$250,000+</span> closed in high-ticket deals ·
+            <span>$10k–$100k+</span> per deal ·
+            <span>75%+ close rate</span> on qualified calls
+          </div>
+
           <ul class="hero-bullets">
-            <li><span>→</span>I take your qualified calls and turn them into premium clients.</li>
-            <li><span>→</span>No pressure tactics — just clear, confident, honest selling.</li>
-            <li><span>→</span>You focus on delivery and growth. I handle the “yes”.</li>
+            <li><span>→</span>You’re stuck on Zoom instead of building product, team and strategy.</li>
+            <li><span>→</span>Your revenue spikes and crashes because you’re the system.</li>
+            <li><span>→</span>Good leads are getting wasted because no one owns the close properly.</li>
           </ul>
 
           <div class="hero-cta-row">
             <a href="https://calendly.com/dylandealmaker" target="_blank" rel="noopener noreferrer" class="btn-primary">
-              Book a discovery call →
+              Fix my sales bottleneck →
             </a>
             <a href="mailto:dylan@dealmakerclosing.com" class="btn-outline">
-              Email Dylan
+              Send Dylan your numbers
             </a>
           </div>
 
           <div class="hero-note">
-            <span>Best fit:</span> established online brands with a strong offer and consistent lead flow.
+            <span>Baseline:</span> you already have leads and a real offer. If pipeline is empty, I’m not your solution. If it’s full and not converting, I am.
           </div>
         </div>
 
@@ -810,42 +966,51 @@
     <section class="strip">
       <div class="strip-inner">
         <div class="strip-item reveal">
-          <span>Deal size</span>
-          <strong>$10,000 – $100,000+ per deal.</strong>
+          <span>Closed to date</span>
+          <strong>$250,000+ in high-ticket deals.</strong>
         </div>
         <div class="strip-item reveal">
-          <span>Sales cycle</span>
-          <strong>From one call to a few weeks, depending on complexity.</strong>
+          <span>Deal profile</span>
+          <strong>$10,000 – $100,000+ per deal, from one call to a few weeks.</strong>
         </div>
         <div class="strip-item reveal">
-          <span>Average conversion</span>
-          <strong>75%+ on qualified high-ticket calls.</strong>
+          <span>Conversion</span>
+          <strong>75%+ close rate on qualified high-ticket calls.</strong>
         </div>
       </div>
     </section>
 
-    <!-- WHO I WORK WITH -->
+    <!-- WHO I WORK WITH (PAIN) -->
     <section class="block" id="who">
       <div class="section-header">
-        <div class="section-eyebrow reveal">Who I work with</div>
-        <h2 class="section-title reveal">Not everyone. The right ones.</h2>
+        <div class="section-eyebrow reveal">Who this is for</div>
+        <h2 class="section-title reveal">If any of this is true, your sales process is the problem.</h2>
         <p class="section-sub reveal">
-          I’m a partner, not a band-aid. If this sounds like you, we’ll get along.
+          I don’t fix bad offers. I fix good offers that are handcuffed by bad or founder-dependent sales.
         </p>
       </div>
 
       <div class="who-grid">
         <div class="who-card reveal">
-          <div class="who-title">Proven offer</div>
-          <p>You sell something that works — coaching, consulting or done-for-you — and clients get real results.</p>
+          <div class="who-title">You’re still on most sales calls</div>
+          <p>
+            You’re the founder, yet your calendar looks like a sales rep’s. When you’re sick, traveling or building,
+            revenue slows down. That’s not scale. That’s tension.
+          </p>
         </div>
         <div class="who-card reveal">
-          <div class="who-title">Consistent leads</div>
-          <p>You already have inbound interest and booked calls. You need a closer, not more hacks.</p>
+          <div class="who-title">Your revenue swings are violent</div>
+          <p>
+            $60k one month, $25k the next. Same offer. Same traffic. Same content. The only variable changing is your
+            time and energy on calls.
+          </p>
         </div>
         <div class="who-card reveal">
-          <div class="who-title">Long-term mindset</div>
-          <p>You care about brand, reputation and client experience just as much as revenue.</p>
+          <div class="who-title">Your pipeline is full, your gut isn’t</div>
+          <p>
+            You see booked calls, tagged “hot leads” and proposals out — but you don’t trust the process to actually
+            collect the cash consistently.
+          </p>
         </div>
       </div>
     </section>
@@ -853,32 +1018,30 @@
     <!-- WHAT YOU GET -->
     <section class="block" id="value">
       <div class="section-header">
-        <div class="section-eyebrow reveal">What you get</div>
-        <h2 class="section-title reveal">Sales handled. Standards raised.</h2>
+        <div class="section-eyebrow reveal">What changes when I take over your sales</div>
+        <h2 class="section-title reveal">The right calls go to one closer. The guesswork disappears.</h2>
         <p class="section-sub reveal">
-          The goal isn’t just more revenue. It’s better clients, cleaner deals and a sales engine that feels like you.
+          I don’t ask you to “be more disciplined” with sales. I remove you from the close so discipline is built into the process.
         </p>
       </div>
 
       <div class="value-layout">
         <div class="reveal">
-          <p>I plug into your existing funnel and take ownership of the conversations that matter most.</p>
+          <p>My job is simple: own the calls that move the numbers and stop the leaks that are killing your growth.</p>
           <ul class="value-bullets">
-            <li><span>✓</span>High-ticket calls handled by someone who actually understands your offer.</li>
-            <li><span>✓</span>Premium, pressure-free experience that makes prospects feel heard and respected.</li>
-            <li><span>✓</span>Feedback on lead quality, positioning and pricing to tighten the whole machine.</li>
-            <li><span>✓</span>More “hell yes” clients, fewer refunds and way less time stuck on sales calls.</li>
+            <li><span>✓</span>Your highest-intent leads speak to the same closer every time — not whoever’s available.</li>
+            <li><span>✓</span>Your close rate stabilizes and climbs instead of being dictated by your mood and schedule.</li>
+            <li><span>✓</span>You get clear feedback on lead quality, positioning and pricing — not vague “the leads are bad”.</li>
+            <li><span>✓</span>You can finally push traffic harder without feeling like you’re pouring it into a broken funnel.</li>
           </ul>
         </div>
 
         <aside class="value-box reveal">
-          <h3>How it usually feels</h3>
-          <p>
-            Most founders either cling to every call themselves or hand them to someone who doesn’t fully “get” the
-            offer. Both cap your growth.
-          </p>
+          <h3>Before vs after Dylan</h3>
+          <p><strong>Before:</strong> You, multi-tasking on calls, DMs and Slack, closing some deals but constantly feeling behind.</p>
+          <p><strong>After:</strong> I’m running the calls. You see bookings, closes and cash numbers tracked — and you’re freed up to build what comes after the sale.</p>
           <p class="value-note">
-            My job is simple: protect the brand, increase the close rate, and free you to actually run the business.
+            If you enjoy being the bottleneck, keep it. If you want a real sales function, that’s what I bring in.
           </p>
         </aside>
       </div>
@@ -888,44 +1051,47 @@
     <section class="block" id="proof">
       <div class="section-header">
         <div class="section-eyebrow reveal">Proof</div>
-        <h2 class="section-title reveal">What founders say after working with Dylan.</h2>
+        <h2 class="section-title reveal">When I step in, founders stop firefighting and start scaling.</h2>
         <p class="section-sub reveal">
-          Real people. Real offers. Real revenue. Here’s what happens when a dedicated closer owns your high-ticket calls.
+          These aren’t “inspired” stories. They’re math: broken or founder-dependent sales → dedicated closer → numbers up.
         </p>
       </div>
 
       <div class="proof-grid">
         <article class="proof-card reveal">
           <p>
-            “We brought Dylan in because we had leads but no one who could actually close them. Within the first month,
-            he personally handled our calls and closed five enterprise clients we’d been chasing for ages. Watching him
-            work was a masterclass in sales control. Those deals alone pushed us past our quarterly target and put us
-            on a real path to 7 figures.”
+            “We brought Dylan in because we had leads but no one who could actually close them. Within the first
+            month, he personally handled our calls and closed <strong>five enterprise clients</strong> we’d been chasing
+            for ages. Watching him work was a masterclass in sales control. Those deals alone pushed us past our
+            quarterly target and put us on a real path to <strong>7 figures</strong>.”
           </p>
           <div class="proof-name">Jordan S.</div>
           <div class="proof-role">Founder, B2B SaaS startup</div>
+          <p class="proof-result"><span>Result:</span> 5 enterprise deals in month one, quarterly target hit early.</p>
         </article>
 
         <article class="proof-card reveal">
           <p>
             “I was burning money on ads and calls that went nowhere. Dylan stepped in and immediately took over our
-            high-ticket appointments. In the first 30 days, he closed more revenue than I had in the previous three
-            months. His closing precision is insane — he doesn’t just teach it, he actually does it. Thanks to him, we
-            finally broke out of the $30k/month plateau.”
+            high-ticket appointments. In the first <strong>30 days</strong>, he closed more revenue than I had in the
+            previous <strong>three months</strong>. His closing precision is insane — he doesn’t just teach it, he
+            actually does it. Thanks to him, we finally broke out of the <strong>$30k/month</strong> plateau.”
           </p>
           <div class="proof-name">Maya L.</div>
           <div class="proof-role">CEO, Digital Growth Systems</div>
+          <p class="proof-result"><span>Result:</span> More closed in 30 days than in the prior 3 months; $30k/month ceiling broken.</p>
         </article>
 
         <article class="proof-card reveal">
           <p>
             “We brought on Dylan to help validate our new premium offer, and he didn’t just give advice — he closed the
-            first wave of high-ticket customers himself. Twelve sales in the first six weeks, all done directly by him.
-            That early traction completely changed how we plan to scale this brand. His ability to lead a call and land
-            the deal is on another level.”
+            first wave of high-ticket customers himself. <strong>Twelve sales</strong> in the first <strong>six weeks</strong>,
+            all done directly by him. That early traction completely changed how we plan to scale this brand. His ability
+            to lead a call and land the deal is on another level.”
           </p>
           <div class="proof-name">Ethan R.</div>
           <div class="proof-role">Founder, DTC wellness brand</div>
+          <p class="proof-result"><span>Result:</span> 12 high-ticket customers in six weeks; premium offer proven and rolled out with confidence.</p>
         </article>
       </div>
     </section>
@@ -933,28 +1099,37 @@
     <!-- HOW IT WORKS -->
     <section class="block" id="process">
       <div class="section-header">
-        <div class="section-eyebrow reveal">How it works</div>
-        <h2 class="section-title reveal">Simple, calm, focused on fit.</h2>
+        <div class="section-eyebrow reveal">How this works</div>
+        <h2 class="section-title reveal">No courses. No scripts. Just your calls, closed properly.</h2>
         <p class="section-sub reveal">
-          This isn’t a complicated funnel surgery. It’s a tight process that respects your time and your brand.
+          This is not “sales coaching”. This is “give me the calls and let’s see what your funnel can really do”.
         </p>
       </div>
 
       <div class="process-grid">
         <div class="process-step reveal">
           <div class="process-tag">Step 1</div>
-          <div class="process-title">Discovery call</div>
-          <p>We walk through your offers, numbers and goals. We’ll both know quickly if this makes sense.</p>
+          <div class="process-title">We look at your reality</div>
+          <p>
+            Offers, prices, traffic, show-up rate, current close rate. No fluff. I want to see where deals die and how
+            much is currently being left on the table.
+          </p>
         </div>
         <div class="process-step reveal">
           <div class="process-tag">Step 2</div>
-          <div class="process-title">Plug into your pipeline</div>
-          <p>I learn your offers, language and client journey — then start taking calls while we refine together.</p>
+          <div class="process-title">I take the right calls</div>
+          <p>
+            I plug into your calendar and handle high-intent, high-ticket conversations. You step out of “chief closer”
+            and back into leader.
+          </p>
         </div>
         <div class="process-step reveal">
           <div class="process-tag">Step 3</div>
-          <div class="process-title">Scale what works</div>
-          <p>We track close rates, cash collected and client quality — and double down on what’s working.</p>
+          <div class="process-title">We scale the winners</div>
+          <p>
+            Once the close rate is stable and strong, you can confidently drive more traffic and attention without
+            wondering if you’re just burning it.
+          </p>
         </div>
       </div>
     </section>
@@ -963,10 +1138,10 @@
     <section class="cta-strip" id="contact">
       <div class="cta-inner">
         <div class="cta-text reveal">
-          <h2>Ready to get your time back and your close rate up?</h2>
+          <h2>If your pipeline is full and revenue isn’t, you already know what the problem is.</h2>
           <p>
-            If you’ve got leads and a real offer, but you’re still stuck in sales calls or underperforming close rates,
-            let’s talk.
+            If you’re tired of living on sales calls, riding unpredictable months and watching good leads die in your
+            CRM, book the call. If you’re comfortable staying stuck, don’t.
           </p>
         </div>
         <div class="cta-actions reveal">
@@ -974,7 +1149,7 @@
             Book a discovery call →
           </a>
           <a href="mailto:dylan@dealmakerclosing.com" class="btn-outline">
-            Share details by email
+            Send Dylan your current numbers
           </a>
         </div>
       </div>
@@ -987,6 +1162,18 @@
       <div>Based online. Working with brands worldwide.</div>
     </div>
   </footer>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="mobile-cta">
+    <div class="mobile-cta-inner">
+      <div class="mobile-cta-text">
+        <span>Done bleeding leads?</span> Book a call and let someone else close them.
+      </div>
+      <a href="https://calendly.com/dylandealmaker" target="_blank" rel="noopener noreferrer" class="mobile-cta-button">
+        Book call
+      </a>
+    </div>
+  </div>
 
   <script>
     // Scroll reveal
