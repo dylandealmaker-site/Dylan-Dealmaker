@@ -11,14 +11,14 @@
 
   <style>
     :root {
-      --bg-main: #050509;
-      --bg-elevated: #111119;
+      --bg: #050509;
+      --bg-alt: #0b0b12;
+      --bg-section: #050509;
       --accent: #d4af37;
-      --accent-soft: rgba(212, 175, 55, 0.15);
+      --accent-soft: rgba(212, 175, 55, 0.16);
       --text-main: #f5f5f5;
-      --text-muted: #a3a3a3;
-      --border-subtle: #242433;
-      --danger: #e74c3c;
+      --text-soft: #b0b0b0;
+      --border-soft: #222232;
     }
 
     * {
@@ -33,7 +33,7 @@
 
     body {
       font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at top, #12121e 0, #050509 45%, #000 100%);
+      background: var(--bg);
       color: var(--text-main);
       line-height: 1.6;
     }
@@ -50,25 +50,48 @@
 
     /* Layout */
 
-    .page-wrapper {
-      max-width: 1120px;
+    .wrapper {
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
+      padding: 0 1.5rem 3rem;
     }
+
+    /* Top bar */
+
+    .top-bar {
+      background: #000;
+      color: var(--text-soft);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 0.4rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #14141f;
+    }
+
+    .top-bar span {
+      color: var(--accent);
+      font-weight: 500;
+      margin-right: 0.4rem;
+    }
+
+    /* Navbar */
 
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 40;
+      background: rgba(5,5,9,0.96);
       backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom, rgba(5,5,9,0.95), rgba(5,5,9,0.8), transparent);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.16);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
     }
 
     .nav {
-      max-width: 1120px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 0.9rem 1.25rem;
+      padding: 0.9rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -77,40 +100,55 @@
 
     .nav-left {
       display: flex;
-      align-items: baseline;
-      gap: 0.5rem;
+      align-items: center;
+      gap: 0.7rem;
     }
 
-    .brand-mark {
-      width: 34px;
-      height: 34px;
+    .nav-logo {
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       border: 1px solid var(--accent);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.9rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
       color: var(--accent);
     }
 
-    .nav-title {
-      font-size: 0.9rem;
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .nav-brand-title {
+      font-size: 0.85rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
+      letter-spacing: 0.24em;
+    }
+
+    .nav-brand-sub {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     .nav-links {
       display: flex;
-      gap: 1.25rem;
-      font-size: 0.9rem;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
     }
 
     .nav-links a {
       position: relative;
       padding-bottom: 0.2rem;
+      color: var(--text-soft);
     }
 
     .nav-links a::after {
@@ -121,59 +159,63 @@
       width: 0;
       height: 1px;
       background: var(--accent);
-      transition: width 0.2s ease-out;
+      transition: width 0.18s ease-out;
     }
 
     .nav-links a:hover::after {
       width: 100%;
     }
 
-    .nav-cta {
-      padding: 0.5rem 1.1rem;
+    .btn-nav {
+      padding: 0.6rem 1.4rem;
       border-radius: 999px;
-      border: 1px solid rgba(212, 175, 55, 0.5);
-      font-size: 0.85rem;
+      border: 1px solid var(--accent);
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      background: radial-gradient(circle at top, rgba(212,175,55,0.3), transparent 55%);
+      letter-spacing: 0.18em;
+      background: linear-gradient(135deg, #f7d774, var(--accent));
+      color: #191006;
       cursor: pointer;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.85);
       transition: all 0.2s ease-out;
       white-space: nowrap;
     }
 
-    .nav-cta:hover {
+    .btn-nav:hover {
       transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.7);
-      background-color: rgba(212,175,55,0.1);
+      box-shadow: 0 16px 35px rgba(0,0,0,0.92);
     }
 
     /* Hero */
 
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 3rem;
-      align-items: center;
-      padding: 3.2rem 0 3.8rem;
-      border-bottom: 1px solid var(--border-subtle);
+      padding: 3rem 0 3.5rem;
+      background: radial-gradient(circle at top, #19192b 0, #050509 45%, #000 100%);
+      border-bottom: 1px solid var(--border-soft);
     }
 
-    .eyebrow {
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-tag {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      padding: 0.2rem 0.7rem;
+      padding: 0.25rem 0.9rem;
       border-radius: 999px;
-      border: 1px solid rgba(212,175,55,0.35);
-      background: rgba(10, 10, 18, 0.9);
+      border: 1px solid rgba(212,175,55,0.5);
+      background: rgba(5,5,10,0.8);
       font-size: 0.75rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-      margin-bottom: 1.4rem;
+      color: var(--text-soft);
+      margin-bottom: 1.6rem;
     }
 
-    .eyebrow-dot {
+    .hero-tag-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
@@ -181,67 +223,75 @@
       box-shadow: 0 0 18px rgba(212,175,55,0.9);
     }
 
-    .hero-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.4rem, 4vw, 3.3rem);
-      letter-spacing: 0.03em;
-      margin-bottom: 0.35rem;
-    }
-
-    .hero-sub {
-      font-size: 1rem;
+    .hero-eyebrow {
+      font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 0.22em;
       color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.7rem, 4.5vw, 3.6rem);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.26em;
+      color: var(--text-soft);
       margin-bottom: 1.2rem;
     }
 
-    .hero-tagline {
+    .hero-text {
       font-size: 1.02rem;
-      color: var(--text-muted);
-      max-width: 32rem;
-      margin-bottom: 1.9rem;
+      color: var(--text-soft);
+      max-width: 40rem;
+      margin: 0 auto 2rem;
     }
 
-    .hero-cta-row {
+    .hero-ctas {
       display: flex;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 0.9rem;
-      align-items: center;
-      margin-bottom: 1.5rem;
+      gap: 1rem;
+      margin-bottom: 1.7rem;
     }
 
     .btn-primary,
     .btn-secondary {
-      padding: 0.85rem 1.6rem;
+      padding: 0.9rem 1.8rem;
       border-radius: 999px;
       font-size: 0.9rem;
       font-weight: 500;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       border: 1px solid transparent;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.55rem;
       transition: all 0.2s ease-out;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, #f7d774, var(--accent));
       color: #1b1306;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.85);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.9);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.9);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.95);
     }
 
     .btn-secondary {
       background: transparent;
-      border-color: rgba(212,175,55,0.5);
+      border-color: rgba(212,175,55,0.45);
       color: var(--text-main);
     }
 
@@ -250,174 +300,120 @@
     }
 
     .hero-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
+      font-size: 0.85rem;
+      color: var(--text-soft);
     }
 
     .hero-note span {
       color: var(--accent);
     }
 
-    .hero-right {
-      position: relative;
+    /* Stats band */
+
+    .stats-band {
+      background: #050509;
+      border-top: 1px solid #14141f;
+      border-bottom: 1px solid #14141f;
     }
 
-    .hero-card {
-      background: radial-gradient(circle at top, #19192b 0, #090910 52%, #020207 100%);
-      border-radius: 24px;
-      border: 1px solid rgba(212,175,55,0.32);
-      padding: 1.5rem 1.4rem;
-      box-shadow:
-        0 24px 60px rgba(0,0,0,0.85),
-        0 0 0 1px rgba(255,255,255,0.02);
+    .stats-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.8rem 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+      font-size: 0.86rem;
     }
 
-    .hero-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1.2rem;
-    }
-
-    .badge-luxe {
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      border: 1px solid rgba(212,175,55,0.7);
-      background: rgba(3,3,8,0.9);
-    }
-
-    .hero-metric {
-      text-align: right;
+    .stat-label {
       font-size: 0.8rem;
-      color: var(--text-muted);
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.3rem;
     }
 
-    .hero-metric strong {
-      display: block;
-      font-size: 1rem;
+    .stat-value {
+      font-size: 1.4rem;
+      font-weight: 600;
       color: var(--accent);
     }
 
-    .hero-card-body {
-      border-radius: 18px;
-      padding: 1.1rem 1rem;
-      background: linear-gradient(145deg, rgba(5,5,12,0.9), rgba(10,10,20,0.9));
-      border: 1px solid rgba(255,255,255,0.04);
-      margin-bottom: 1.1rem;
-    }
-
-    .hero-card-body h3 {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-      margin-bottom: 0.8rem;
-    }
-
-    .hero-card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.8rem 1rem;
-      font-size: 0.83rem;
-    }
-
-    .hero-pill {
-      padding: 0.4rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(212,175,55,0.38);
-      background: rgba(8,8,14,0.85);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      white-space: nowrap;
-    }
-
-    .hero-card-footer {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #2ecc71;
-      box-shadow: 0 0 12px #2ecc71;
-      margin-right: 0.4rem;
-    }
-
-    /* Sections */
+    /* Generic section */
 
     section {
-      padding: 3.2rem 0;
-      border-bottom: 1px solid var(--border-subtle);
+      padding: 3.6rem 0;
+      border-bottom: 1px solid var(--border-soft);
+      background: var(--bg-section);
     }
 
     .section-header {
-      margin-bottom: 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 1rem;
-      flex-wrap: wrap;
+      max-width: 860px;
+      margin: 0 auto 2.4rem;
+      text-align: center;
+    }
+
+    .section-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-soft);
+      margin-bottom: 0.6rem;
     }
 
     .section-title {
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--text-muted);
-    }
-
-    .section-kicker {
       font-family: "Playfair Display", serif;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
+      margin-bottom: 0.6rem;
     }
 
     .section-sub {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      max-width: 22rem;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      max-width: 34rem;
+      margin: 0.7rem auto 0;
     }
 
     /* About */
 
-    .about-grid {
+    .about-body {
+      max-width: 900px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
-      gap: 2.4rem;
-      align-items: start;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2fr);
+      gap: 2.5rem;
+      align-items: flex-start;
     }
 
-    .about-main {
+    .about-text {
       font-size: 0.98rem;
-      color: #e2e2e2;
+      color: #e3e3e3;
     }
 
-    .about-main p + p {
-      margin-top: 1rem;
+    .about-text p + p {
+      margin-top: 1.1rem;
     }
 
-    .about-highlights {
-      display: grid;
-      gap: 0.8rem;
+    .about-side {
+      border-radius: 18px;
+      padding: 1.5rem 1.4rem;
+      background: radial-gradient(circle at top left, #181827, #050509);
+      border: 1px solid rgba(255,255,255,0.06);
       font-size: 0.86rem;
-      color: var(--text-muted);
+      color: var(--text-soft);
     }
 
-    .about-highlights strong {
-      color: var(--accent);
-      font-weight: 500;
+    .about-side h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.7rem;
+      color: var(--text-main);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
     }
 
-    .about-chip-row {
+    .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
@@ -427,35 +423,40 @@
     .chip {
       padding: 0.25rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.04);
-      background: rgba(8,8,16,0.9);
-      font-size: 0.78rem;
-      color: var(--text-muted);
+      font-size: 0.76rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(6,6,14,0.95);
+      color: var(--text-soft);
     }
 
     /* Services */
 
     .services-grid {
+      max-width: 1000px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.6rem;
     }
 
     .service-card {
-      background: linear-gradient(145deg, rgba(10,10,18,0.98), rgba(3,3,8,1));
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.04);
-      padding: 1.4rem 1.3rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: radial-gradient(circle at top, #181827, #050509);
+      padding: 1.6rem 1.5rem 1.7rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.8);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.8);
     }
 
     .service-card::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top right, rgba(212,175,55,0.18), transparent 55%);
+      background: radial-gradient(circle at top right, rgba(212,175,55,0.17), transparent 55%);
       opacity: 0;
       transition: opacity 0.25s ease-out;
       pointer-events: none;
@@ -466,98 +467,108 @@
     }
 
     .service-label {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
     }
 
     .service-title {
-      font-size: 1.02rem;
-      margin-bottom: 0.7rem;
+      font-size: 1.08rem;
       color: var(--accent);
     }
 
-    .service-body {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      margin-bottom: 0.85rem;
+    .service-text {
+      font-size: 0.88rem;
+      color: var(--text-soft);
     }
 
     .service-meta {
-      font-size: 0.78rem;
-      color: #c4c4c4;
+      font-size: 0.8rem;
+      color: #d0d0d0;
+      margin-top: 0.4rem;
     }
 
-    /* Process */
+    /* Testimonials */
 
-    .process-grid {
+    .testimonials {
+      background: var(--bg-alt);
+    }
+
+    .testimonial-grid {
+      max-width: 1000px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.6rem;
+    }
+
+    .testimonial {
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: radial-gradient(circle at top, #171724, #050509);
+      padding: 1.4rem 1.4rem 1.5rem;
       font-size: 0.86rem;
+      color: var(--text-soft);
+      position: relative;
+      overflow: hidden;
     }
 
-    .process-step {
-      background: radial-gradient(circle at top, #171724, #07070d);
-      border-radius: 16px;
-      padding: 1.2rem 1.1rem;
-      border: 1px solid rgba(255,255,255,0.05);
+    .testimonial::before {
+      content: "“";
+      position: absolute;
+      top: -2.2rem;
+      left: -0.2rem;
+      font-family: "Playfair Display", serif;
+      font-size: 6rem;
+      color: rgba(255,255,255,0.06);
     }
 
-    .process-tag {
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .process-title {
-      font-size: 0.98rem;
-      margin-bottom: 0.4rem;
-      color: #f0f0f0;
-    }
-
-    .process-step span {
-      color: var(--accent);
+    .testimonial-name {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
       font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: var(--text-soft);
     }
 
     /* Contact */
 
     .contact-grid {
+      max-width: 900px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2.3fr);
-      gap: 2.4rem;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 2fr);
+      gap: 2.3rem;
       align-items: center;
     }
 
     .contact-main h3 {
       font-family: "Playfair Display", serif;
-      font-size: 1.5rem;
-      margin-bottom: 0.8rem;
+      font-size: 1.7rem;
+      margin-bottom: 0.7rem;
     }
 
     .contact-main p {
       font-size: 0.95rem;
-      color: var(--text-muted);
-      max-width: 30rem;
-      margin-bottom: 1.5rem;
+      color: var(--text-soft);
+      margin-bottom: 1.4rem;
     }
 
-    .contact-rows {
-      display: grid;
-      gap: 0.8rem;
-      font-size: 0.88rem;
+    .contact-row {
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
     }
 
     .contact-label {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--text-muted);
+      color: var(--text-soft);
       margin-bottom: 0.15rem;
     }
 
@@ -566,38 +577,36 @@
     }
 
     .contact-card {
-      background: radial-gradient(circle at top left, #19192a, #07070d);
       border-radius: 18px;
-      padding: 1.4rem 1.3rem;
-      border: 1px solid rgba(212,175,55,0.4);
+      padding: 1.6rem 1.5rem;
+      border: 1px solid rgba(212,175,55,0.45);
+      background: radial-gradient(circle at top left, #181828, #050509);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.9);
       font-size: 0.88rem;
-      box-shadow: 0 18px 38px rgba(0,0,0,0.85);
+      color: var(--text-soft);
     }
 
     .contact-card h4 {
-      font-size: 0.98rem;
-      margin-bottom: 0.4rem;
-      color: #f6f6f6;
-    }
-
-    .contact-card p {
-      color: var(--text-muted);
-      margin-bottom: 1.1rem;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
     }
 
     .contact-hint {
       font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 0.6rem;
+      color: var(--text-soft);
+      margin-top: 0.7rem;
     }
 
     /* Footer */
 
     footer {
-      padding-top: 2.4rem;
+      padding: 2.2rem 1.5rem 2.5rem;
+      background: #000;
+      color: var(--text-soft);
       font-size: 0.8rem;
-      color: var(--text-muted);
       text-align: center;
+      border-top: 1px solid #14141f;
     }
 
     footer span {
@@ -606,138 +615,141 @@
 
     /* Responsive */
 
-    @media (max-width: 880px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
+    @media (max-width: 960px) {
+      .nav-links {
+        display: none;
       }
 
-      .hero-right {
-        order: -1;
+      .stats-inner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .about-grid,
+      .about-body,
       .services-grid,
-      .process-grid,
+      .testimonial-grid,
       .contact-grid {
         grid-template-columns: minmax(0, 1fr);
       }
+    }
 
-      .services-grid {
-        gap: 1.2rem;
-      }
-
-      .nav-links {
-        display: none;
+    @media (max-width: 600px) {
+      .wrapper {
+        padding-inline: 1rem;
       }
 
       .nav {
         padding-inline: 1rem;
       }
 
-      .page-wrapper {
-        padding-inline: 1rem;
+      .stats-inner {
+        grid-template-columns: minmax(0, 1fr);
       }
-    }
 
-    @media (max-width: 520px) {
-      .hero-cta-row {
+      .hero-ctas {
         flex-direction: column;
-        align-items: stretch;
       }
 
       .btn-primary,
       .btn-secondary {
-        justify-content: center;
         width: 100%;
-      }
-
-      .hero-card-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .section-header {
-        flex-direction: column;
-        align-items: flex-start;
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
+  <!-- Top bar -->
+  <div class="top-bar">
+    <span>Now accepting</span> a limited number of new high-ticket closing partnerships.
+  </div>
+
   <!-- Nav -->
   <header>
     <nav class="nav">
       <div class="nav-left">
-        <div class="brand-mark">DD</div>
-        <div class="nav-title">High Ticket Closer</div>
+        <div class="nav-logo">DD</div>
+        <div class="nav-brand">
+          <div class="nav-brand-title">Dylan Dealmaker</div>
+          <div class="nav-brand-sub">High Ticket Closer</div>
+        </div>
       </div>
+
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
-        <a href="#process">How I Work</a>
-        <a href="#contact">Contact</a>
+        <a href="#testimonials">Results</a>
+        <a href="#contact">Work With Me</a>
       </div>
-      <a class="nav-cta" href="https://calendly.com/dylandealmaker" target="_blank" rel="noopener noreferrer">
-        Book a Call
+
+      <a class="btn-nav" href="https://calendly.com/dylandealmaker" target="_blank" rel="noopener noreferrer">
+        Book a call
       </a>
     </nav>
   </header>
 
-  <main class="page-wrapper">
+  <main>
     <!-- Hero -->
     <section class="hero" id="top">
-      <div class="hero-left">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Premium sales partner
+      <div class="wrapper hero-inner">
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          Premium sales partner for online brands
         </div>
-        <h1 class="hero-title">Dylan Dealmaker</h1>
-        <div class="hero-sub">High Ticket Closer</div>
-        <p class="hero-tagline">
-          I help online businesses close more high-ticket deals on demand.
+
+        <div class="hero-eyebrow">High-ticket closing · Revenue partnerships</div>
+
+        <h1 class="hero-title">Experience predictable high-ticket revenue.</h1>
+        <div class="hero-subtitle">With a closer who feels like part of your leadership team.</div>
+
+        <p class="hero-text">
+          I help online businesses close more high-ticket deals on demand — through ethical, value-led sales
+          conversations that protect your brand and convert serious buyers.
         </p>
 
-        <div class="hero-cta-row">
+        <div class="hero-ctas">
           <a href="https://calendly.com/dylandealmaker" target="_blank" rel="noopener noreferrer" class="btn-primary">
             Book a discovery call →
           </a>
-          <a href="#contact" class="btn-secondary">
-            Contact me directly
+          <a href="#services" class="btn-secondary">
+            View services
           </a>
         </div>
 
         <div class="hero-note">
-          <span>White-glove</span> client acquisition support for brands ready to scale.
+          <span>Best fit for:</span> established online offers with consistent lead flow and premium positioning.
         </div>
       </div>
+    </section>
 
-      <div class="hero-right">
-        <div class="hero-card">
-          <div class="hero-card-header">
-            <div class="badge-luxe">Done-for-you high-ticket closing</div>
-            <div class="hero-metric">
-              <span>For premium online brands</span>
-            </div>
+    <!-- Stats band -->
+    <section class="stats-band">
+      <div class="stats-inner">
+        <div>
+          <div class="stat-label">Focus</div>
+          <div class="stat-value">High-ticket</div>
+          <div style="font-size:0.8rem;color:var(--text-soft);margin-top:0.2rem;">
+            Coaching, consulting & done-for-you services.
           </div>
-
-          <div class="hero-card-body">
-            <h3>Where I create leverage for you</h3>
-            <div class="hero-card-grid">
-              <div class="hero-pill">High-ticket sales calls</div>
-              <div class="hero-pill">Lead-to-client conversion</div>
-              <div class="hero-pill">Offer positioning on calls</div>
-              <div class="hero-pill">Sales team optimisation</div>
-            </div>
+        </div>
+        <div>
+          <div class="stat-label">Partnership style</div>
+          <div class="stat-value">White-glove</div>
+          <div style="font-size:0.8rem;color:var(--text-soft);margin-top:0.2rem;">
+            I integrate into your brand, not just your calendar.
           </div>
-
-          <div class="hero-card-footer">
-            <div>
-              <span class="status-dot"></span>
-              Currently open to select partnerships.
-            </div>
-            <div>
-              Priority for brands serious about:
-              <strong style="color: var(--accent); display:block;">predictable, high-ticket revenue.</strong>
-            </div>
+        </div>
+        <div>
+          <div class="stat-label">Sales approach</div>
+          <div class="stat-value">Consultative</div>
+          <div style="font-size:0.8rem;color:var(--text-soft);margin-top:0.2rem;">
+            Calm, confident conversations that convert.
+          </div>
+        </div>
+        <div>
+          <div class="stat-label">Engagements</div>
+          <div class="stat-value">Select few</div>
+          <div style="font-size:0.8rem;color:var(--text-soft);margin-top:0.2rem;">
+            I work with a limited number of brands at a time.
           </div>
         </div>
       </div>
@@ -745,187 +757,176 @@
 
     <!-- About -->
     <section id="about">
-      <div class="section-header">
-        <div>
-          <div class="section-title">About</div>
-          <div class="section-kicker">A closer that feels like part of your leadership team.</div>
-        </div>
-        <div class="section-sub">
-          I work as a partner, not a script reader — aligning with your brand, your values and the client
-          experience you want to be known for.
-        </div>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-main">
-          <p>
-            I partner with premium online brands to elevate their sales experience and convert high-value prospects with
-            precision. My approach blends expert communication, refined sales strategy, and a white-glove client journey
-            — delivering predictable high-ticket revenue without the hard-sell tactics.
-          </p>
-          <p>
-            For brands aiming higher, I handle the conversations that close — so you and your team can stay focused on
-            delivery, operations and long-term growth. Every call is treated as a high-impact touchpoint with your
-            brand, not “just another sales call”.
+      <div class="wrapper">
+        <div class="section-header">
+          <div class="section-eyebrow">About Dylan</div>
+          <h2 class="section-title">A closer who protects your brand while growing your revenue.</h2>
+          <p class="section-sub">
+            You don’t need another script reader on commission. You need a trusted partner who understands your
+            clients, your offers and the long-term game you’re playing.
           </p>
         </div>
 
-        <div class="about-highlights">
-          <div>
-            <strong>What I care about:</strong>
-            <div class="about-chip-row">
+        <div class="about-body">
+          <div class="about-text">
+            <p>
+              I partner with premium online brands to elevate their sales experience and convert high-value prospects
+              with precision. My approach blends expert communication, refined sales strategy, and a white-glove client
+              journey — delivering predictable high-ticket revenue without the hard-sell tactics.
+            </p>
+            <p>
+              For brands aiming higher, I handle the conversations that close — so you and your team can stay focused on
+              delivery, operations and long-term growth. Every call is treated as a high-impact touchpoint with your
+              brand, not “just another sales call”.
+            </p>
+          </div>
+
+          <aside class="about-side">
+            <h3>What I optimise for</h3>
+            <p>Three pillars drive every partnership I step into:</p>
+            <div class="chips">
               <span class="chip">Ethical, value-led selling</span>
               <span class="chip">Premium client experience</span>
-              <span class="chip">Long-term relationships</span>
+              <span class="chip">Long-term revenue growth</span>
+              <span class="chip">Clean, confident communication</span>
+              <span class="chip">Offer & positioning feedback</span>
             </div>
-          </div>
-          <div>
-            <strong>Where I fit best:</strong>
-            <div class="about-chip-row">
-              <span class="chip">Online education & coaching</span>
-              <span class="chip">Consulting & done-for-you services</span>
-              <span class="chip">Offer-driven online brands</span>
-            </div>
-          </div>
-          <div>
-            <strong>How I show up:</strong>
-            <div class="about-chip-row">
-              <span class="chip">Prepared on your offer</span>
-              <span class="chip">Aligned with your brand voice</span>
-              <span class="chip">Calm, confident & consultative</span>
-            </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
 
     <!-- Services -->
     <section id="services">
-      <div class="section-header">
-        <div>
-          <div class="section-title">Services</div>
-          <div class="section-kicker">Premium support built around high-ticket growth.</div>
+      <div class="wrapper">
+        <div class="section-header">
+          <div class="section-eyebrow">Services</div>
+          <h2 class="section-title">Three ways we can work together.</h2>
+          <p class="section-sub">
+            From core closing support to a fully-managed high-ticket sales function, each engagement is designed to match
+            your current stage of growth.
+          </p>
         </div>
-        <div class="section-sub">
-          Choose the level of partnership that matches your current stage — from core closing support to a fully managed,
-          white-glove acquisition solution.
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <article class="service-card">
+            <div class="service-label">Core offer</div>
+            <h3 class="service-title">High-Ticket Sales Closing</h3>
+            <p class="service-text">
+              Precision-driven sales conversations designed to convert qualified prospects into premium clients. I take
+              full ownership of the call — guiding, presenting and closing with a high-end, value-focused approach.
+            </p>
+            <p class="service-meta">
+              Best for established offers with consistent lead flow that need a closer who can perform and protect the
+              brand.
+            </p>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="service-card">
+            <div class="service-label">Partnership</div>
+            <h3 class="service-title">White-Glove Client Acquisition Partnership</h3>
+            <p class="service-text">
+              A complete done-for-you sales solution for brands that want a seamless, high-performance client
+              acquisition system. I manage your full high-ticket sales process so you get consistent, predictable
+              revenue without the stress.
+            </p>
+            <p class="service-meta">
+              Ideal for brands ready to scale and looking for a trusted closer to own the sales function long-term.
+            </p>
+          </article>
+
+          <!-- Service 3 -->
+          <article class="service-card">
+            <div class="service-label">Advisory</div>
+            <h3 class="service-title">Sales Team Training & Performance Coaching</h3>
+            <p class="service-text">
+              Elite-level training for sales teams that want to close like top 1% professionals. I refine scripts,
+              strengthen objection handling, improve delivery and elevate the entire sales experience to premium
+              standards.
+            </p>
+            <p class="service-meta">
+              Perfect for teams with volume that want higher close rates, better clients and stronger retention.
+            </p>
+          </article>
         </div>
-      </div>
-
-      <div class="services-grid">
-        <!-- Service 1 -->
-        <article class="service-card">
-          <div class="service-label">Core offer</div>
-          <h3 class="service-title">High-Ticket Sales Closing</h3>
-          <p class="service-body">
-            Precision-driven sales conversations designed to convert qualified prospects into premium clients. I take full
-            ownership of the call — guiding, presenting and closing with a high-end, value-focused approach.
-          </p>
-          <div class="service-meta">
-            Ideal for: established offers with consistent lead flow that need a closer who can perform and protect the brand.
-          </div>
-        </article>
-
-        <!-- Service 2 -->
-        <article class="service-card">
-          <div class="service-label">Partnership</div>
-          <h3 class="service-title">White-Glove Client Acquisition Partnership</h3>
-          <p class="service-body">
-            A complete done-for-you sales solution for brands that want a seamless, high-performance client acquisition
-            system. I manage your full high-ticket sales process, delivering consistent and predictable revenue without
-            the pressure or complexity.
-          </p>
-          <div class="service-meta">
-            Ideal for: brands ready to scale and looking for a trusted closer to own the sales function long-term.
-          </div>
-        </article>
-
-        <!-- Service 3 -->
-        <article class="service-card">
-          <div class="service-label">Advisory</div>
-          <h3 class="service-title">Sales Team Training & Performance Coaching</h3>
-          <p class="service-body">
-            Elite-level training for sales teams that want to close like top 1% professionals. I refine scripts, strengthen
-            objection handling, improve delivery and elevate the entire sales experience to premium standards.
-          </p>
-          <div class="service-meta">
-            Ideal for: teams with volume that want to increase close rate, average order value and client quality.
-          </div>
-        </article>
       </div>
     </section>
 
-    <!-- Process -->
-    <section id="process">
-      <div class="section-header">
-        <div>
-          <div class="section-title">How I Work</div>
-          <div class="section-kicker">Simple, aligned and focused on results.</div>
-        </div>
-        <div class="section-sub">
-          No clutter, no confusion. We establish fit, define expectations and then let the numbers and client experience
-          speak for themselves.
-        </div>
-      </div>
-
-      <div class="process-grid">
-        <div class="process-step">
-          <div class="process-tag">Step 1</div>
-          <div class="process-title">Discovery & Alignment</div>
-          <p>
-            We walk through your offers, client journey and numbers. I want to understand your brand, margins and growth
-            targets so I can operate like part of your leadership team — not a freelancer.
+    <!-- Testimonials / social proof -->
+    <section id="testimonials" class="testimonials">
+      <div class="wrapper">
+        <div class="section-header">
+          <div class="section-eyebrow">Social proof</div>
+          <h2 class="section-title">What working with a dedicated closer feels like.</h2>
+          <p class="section-sub">
+            Use these as placeholders for now. When you have real client feedback, you can swap the quotes and names
+            without changing the layout.
           </p>
         </div>
 
-        <div class="process-step">
-          <div class="process-tag">Step 2</div>
-          <div class="process-title">Integration & Calibration</div>
-          <p>
-            I plug into your existing funnel, systems and scripts, then refine the talk tracks, positioning and key
-            moments on the call. The goal: <span>maximum conversion</span> with a premium, pressure-free experience.
-          </p>
-        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial">
+            <p>
+              “Having Dylan handling our high-ticket calls meant I could finally step out of the DMs and back into
+              leading the company. Close rates went up, refund requests went down, and clients raved about the
+              experience.”
+            </p>
+            <div class="testimonial-name">Placeholder Name</div>
+            <div class="testimonial-role">Founder, Online Education Brand</div>
+          </article>
 
-        <div class="process-step">
-          <div class="process-tag">Step 3</div>
-          <div class="process-title">Performance & Partnership</div>
-          <p>
-            We track close rates, show-up rates and revenue, then iterate. For long-term partnerships, I provide ongoing
-            feedback on offer positioning, lead quality and pipeline health.
-          </p>
+          <article class="testimonial">
+            <p>
+              “He doesn’t just read a script — he understands the offer, the numbers and the client. The feedback he
+              gave us on positioning alone more than paid for the engagement.”
+            </p>
+            <div class="testimonial-name">Placeholder Name</div>
+            <div class="testimonial-role">CEO, Done-For-You Service Agency</div>
+          </article>
+
+          <article class="testimonial">
+            <p>
+              “Our team started using Dylan’s frameworks and the quality of our sales conversations changed overnight.
+              Fewer discounts, better clients, higher lifetime value.”
+            </p>
+            <div class="testimonial-name">Placeholder Name</div>
+            <div class="testimonial-role">Head of Sales, Coaching Company</div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- Contact -->
     <section id="contact">
-      <div class="section-header">
-        <div>
-          <div class="section-title">Contact</div>
-          <div class="section-kicker">Ready to talk about your high-ticket growth?</div>
-        </div>
-        <div class="section-sub">
-          Two ways to start: book a call directly, or reach out via email if you prefer a quick intro first.
-        </div>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-main">
-          <h3>Let’s see if we’re a fit.</h3>
-          <p>
-            If you run an online business with a strong offer and you’re ready to increase high-ticket revenue, I’d like to
-            hear about it. I work with a select number of brands at a time to keep performance and client experience high.
+      <div class="wrapper">
+        <div class="section-header">
+          <div class="section-eyebrow">Work with Dylan</div>
+          <h2 class="section-title">Ready to talk about your high-ticket growth?</h2>
+          <p class="section-sub">
+            Two simple ways to start: book a discovery call, or reach out via email if you prefer to share a few details
+            first.
           </p>
+        </div>
 
-          <div class="contact-rows">
-            <div>
+        <div class="contact-grid">
+          <div class="contact-main">
+            <h3>Let’s see if we’re a fit.</h3>
+            <p>
+              If you run an online business with a strong offer and you’re ready to increase high-ticket revenue, I’d
+              like to hear about it. I work with a select number of brands at a time to keep performance and client
+              experience high.
+            </p>
+
+            <div class="contact-row">
               <div class="contact-label">Email</div>
               <div class="contact-value">
                 <a href="mailto:dylan@dealmakerclosing.com">dylan@dealmakerclosing.com</a>
               </div>
             </div>
-            <div>
+
+            <div class="contact-row">
               <div class="contact-label">Book a call</div>
               <div class="contact-value">
                 <a href="https://calendly.com/dylandealmaker" target="_blank" rel="noopener noreferrer">
@@ -934,27 +935,28 @@
               </div>
             </div>
           </div>
-        </div>
 
-        <aside class="contact-card">
-          <h4>Booking a call</h4>
-          <p>
-            Use the link below to schedule a no-pressure discovery call. We’ll talk through your offer, current numbers
-            and what you want your sales function to look like over the next 6–12 months.
-          </p>
-          <a href="https://calendly.com/dylandealmaker" target="_blank" rel="noopener noreferrer" class="btn-primary">
-            Book a discovery call →
-          </a>
-          <div class="contact-hint">
-            Please only book if you already have an existing offer and some level of lead flow in place.
-          </div>
-        </aside>
+          <aside class="contact-card">
+            <h4>What happens on the call</h4>
+            <p>
+              In 20–30 minutes we’ll walk through your offers, current sales process and targets for the next 6–12
+              months. If it looks like a fit, we’ll map out a partnership structure that protects your margins and
+              grows your revenue.
+            </p>
+            <a href="https://calendly.com/dylandealmaker" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top:0.4rem;">
+              Schedule a discovery call →
+            </a>
+            <div class="contact-hint">
+              Please only book if you already have an existing offer and some level of qualified lead flow in place.
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
-
-    <footer>
-      © <span>Dylan Dealmaker</span> – High Ticket Closer. All rights reserved.
-    </footer>
   </main>
+
+  <footer>
+    © <span>Dylan Dealmaker</span> – High Ticket Closer. All rights reserved.
+  </footer>
 </body>
 </html>
