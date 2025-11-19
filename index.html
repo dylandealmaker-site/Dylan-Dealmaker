@@ -15,6 +15,7 @@
       --bg-soft: #0b0b10;
       --text: #ffffff;
       --muted: #b3b3b3;
+      --muted-soft: #9091a2;
       --gold: #d4af37;
       --gold-soft: rgba(212, 175, 55, 0.15);
       --border: #252535;
@@ -109,7 +110,7 @@
 
     .nav-role {
       font-size: 0.75rem;
-      color: var(--muted);
+      color: var(--muted-soft);
       text-transform: uppercase;
       letter-spacing: 0.16em;
     }
@@ -200,7 +201,7 @@
       letter-spacing: 0.02em;
     }
 
-    .hero-line {
+    .hero-line-text {
       font-size: 1rem;
       color: var(--muted);
       margin-bottom: 1.4rem;
@@ -397,6 +398,239 @@
       font-weight: 500;
     }
 
+    /* SECTION GENERAL */
+
+    section.block {
+      padding: 3.3rem 0;
+      border-bottom: 1px solid var(--border);
+      background: #050509;
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+
+    .section-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* WHO I WORK WITH */
+
+    .who-grid {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-inline: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .who-card {
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: radial-gradient(circle at top, #181824, #050509);
+      padding: 1.4rem 1.3rem;
+    }
+
+    .who-title {
+      font-size: 0.95rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    /* WHAT YOU GET */
+
+    .value-layout {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-inline: 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 2fr);
+      gap: 2.4rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .value-bullets {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.8rem;
+    }
+
+    .value-bullets li {
+      margin-bottom: 0.5rem;
+    }
+
+    .value-bullets span {
+      color: var(--gold);
+      margin-right: 0.35rem;
+    }
+
+    .value-box {
+      border-radius: 18px;
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      background: radial-gradient(circle at top left, #181828, #050509);
+      padding: 1.5rem 1.4rem;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.95);
+    }
+
+    .value-box h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .value-note {
+      font-size: 0.8rem;
+      color: var(--muted-soft);
+      margin-top: 0.6rem;
+    }
+
+    /* PROOF */
+
+    .proof-grid {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-inline: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .proof-card {
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: radial-gradient(circle at top, #171724, #050509);
+      padding: 1.3rem 1.2rem 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .proof-card::before {
+      content: "“";
+      position: absolute;
+      top: -1.6rem;
+      left: -0.1rem;
+      font-family: "Playfair Display", serif;
+      font-size: 4.5rem;
+      color: rgba(255, 255, 255, 0.06);
+    }
+
+    .proof-name {
+      margin-top: 0.7rem;
+      font-size: 0.88rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .proof-role {
+      font-size: 0.78rem;
+      color: var(--muted-soft);
+    }
+
+    /* HOW IT WORKS */
+
+    .process-grid {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-inline: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .process-step {
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: radial-gradient(circle at top, #181827, #050509);
+      padding: 1.4rem 1.3rem;
+    }
+
+    .process-tag {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .process-title {
+      font-size: 0.96rem;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .process-step span {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* FINAL CTA */
+
+    .cta-strip {
+      padding: 3rem 0 2.8rem;
+      background: #050505;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cta-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-inline: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cta-text {
+      max-width: 460px;
+    }
+
+    .cta-text h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .cta-text p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
     /* FOOTER */
 
     footer {
@@ -451,16 +685,32 @@
       .hero {
         padding-top: 3.2rem;
       }
+
+      .who-grid,
+      .proof-grid,
+      .process-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .value-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     @media (max-width: 640px) {
       .wrapper,
       .nav,
-      .hero-inner {
+      .hero-inner,
+      .who-grid,
+      .value-layout,
+      .proof-grid,
+      .process-grid,
+      .cta-inner {
         padding-inline: 1.1rem;
       }
 
-      .hero-cta-row {
+      .hero-cta-row,
+      .cta-actions {
         flex-direction: column;
         align-items: stretch;
       }
@@ -474,6 +724,11 @@
 
       .strip-inner {
         grid-template-columns: minmax(0, 1fr);
+      }
+
+      .cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -511,7 +766,7 @@
           <h1 class="hero-title">
             You bring the leads.<br />I close the deals.
           </h1>
-          <p class="hero-line">
+          <p class="hero-line-text">
             High-ticket clients. Clean conversations. A sales experience your brand can be proud of.
           </p>
           <ul class="hero-bullets">
@@ -568,6 +823,147 @@
         </div>
       </div>
     </section>
+
+    <!-- WHO I WORK WITH -->
+    <section class="block" id="who">
+      <div class="section-header">
+        <div class="section-eyebrow reveal">Who I work with</div>
+        <h2 class="section-title reveal">Not everyone. The right ones.</h2>
+        <p class="section-sub reveal">
+          I’m a partner, not a band-aid. If this sounds like you, we’ll get along.
+        </p>
+      </div>
+
+      <div class="who-grid">
+        <div class="who-card reveal">
+          <div class="who-title">Proven offer</div>
+          <p>You sell something that works — coaching, consulting or done-for-you — and clients get real results.</p>
+        </div>
+        <div class="who-card reveal">
+          <div class="who-title">Consistent leads</div>
+          <p>You already have inbound interest and booked calls. You need a closer, not more hacks.</p>
+        </div>
+        <div class="who-card reveal">
+          <div class="who-title">Long-term mindset</div>
+          <p>You care about brand, reputation and client experience just as much as revenue.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="block" id="value">
+      <div class="section-header">
+        <div class="section-eyebrow reveal">What you get</div>
+        <h2 class="section-title reveal">Sales handled. Standards raised.</h2>
+        <p class="section-sub reveal">
+          The goal isn’t just more revenue. It’s better clients, cleaner deals and a sales engine that feels like you.
+        </p>
+      </div>
+
+      <div class="value-layout">
+        <div class="reveal">
+          <p>I plug into your existing funnel and take ownership of the conversations that matter most.</p>
+          <ul class="value-bullets">
+            <li><span>✓</span>High-ticket calls handled by someone who actually understands your offer.</li>
+            <li><span>✓</span>Premium, pressure-free experience that makes prospects feel heard and respected.</li>
+            <li><span>✓</span>Feedback on lead quality, positioning and pricing to tighten the whole machine.</li>
+            <li><span>✓</span>More “hell yes” clients, fewer refunds and way less time stuck on sales calls.</li>
+          </ul>
+        </div>
+
+        <aside class="value-box reveal">
+          <h3>How it usually feels</h3>
+          <p>
+            Most founders either cling to every call themselves or hand them to someone who doesn’t fully “get” the
+            offer. Both cap your growth.
+          </p>
+          <p class="value-note">
+            My job is simple: protect the brand, increase the close rate, and free you to actually run the business.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section class="block" id="proof">
+      <div class="section-header">
+        <div class="section-eyebrow reveal">Proof (placeholder)</div>
+        <h2 class="section-title reveal">What brands say after we work together.</h2>
+        <p class="section-sub reveal">
+          Swap these for real client quotes when you’re ready. The layout is built for short, sharp wins.
+        </p>
+      </div>
+
+      <div class="proof-grid">
+        <article class="proof-card reveal">
+          <p>“Dylan took over our high-ticket calls and within weeks I was out of the calendar chaos and back into building the business.”</p>
+          <div class="proof-name">Name here</div>
+          <div class="proof-role">Founder, Online Coaching Brand</div>
+        </article>
+
+        <article class="proof-card reveal">
+          <p>“No pressure, no weird tactics — just confident leadership on the call. Our close rate and client quality both jumped.”</p>
+          <div class="proof-name">Name here</div>
+          <div class="proof-role">CEO, Done-For-You Agency</div>
+        </article>
+
+        <article class="proof-card reveal">
+          <p>“He doesn’t just close. He tells you what’s really happening in your pipeline so you can fix it fast.”</p>
+          <div class="proof-name">Name here</div>
+          <div class="proof-role">Owner, Education Company</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="block" id="process">
+      <div class="section-header">
+        <div class="section-eyebrow reveal">How it works</div>
+        <h2 class="section-title reveal">Simple, calm, focused on fit.</h2>
+        <p class="section-sub reveal">
+          This isn’t a complicated funnel surgery. It’s a tight process that respects your time and your brand.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <div class="process-tag">Step 1</div>
+          <div class="process-title">Discovery call</div>
+          <p>We walk through your offers, numbers and goals. We’ll both know quickly if this makes sense.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-tag">Step 2</div>
+          <div class="process-title">Plug into your pipeline</div>
+          <p>I learn your offers, language and client journey — then start taking calls while we refine together.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-tag">Step 3</div>
+          <div class="process-title">Scale what works</div>
+          <p>We track close rates, cash collected and client quality — and double down on what’s working.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-strip" id="contact">
+      <div class="cta-inner">
+        <div class="cta-text reveal">
+          <h2>Ready to get your time back and your close rate up?</h2>
+          <p>
+            If you’ve got leads and a real offer, but you’re still stuck in sales calls or underperforming close rates,
+            let’s talk.
+          </p>
+        </div>
+        <div class="cta-actions reveal">
+          <a href="https://calendly.com/dylandealmaker" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Book a discovery call →
+          </a>
+          <a href="mailto:dylan@dealmakerclosing.com" class="btn-outline">
+            Share details by email
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -611,3 +1007,4 @@
   </script>
 </body>
 </html>
+
