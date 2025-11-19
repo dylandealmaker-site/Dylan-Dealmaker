@@ -365,7 +365,7 @@
       100% { transform: translateY(-60px); opacity: 0; }
     }
 
-    /* MINI STRIP */
+    /* MINI STATS STRIP */
 
     .strip {
       border-top: 1px solid var(--border);
@@ -806,20 +806,20 @@
       </div>
     </section>
 
-    <!-- MINI CREDIBILITY STRIP -->
+    <!-- MINI STATS STRIP -->
     <section class="strip">
       <div class="strip-inner">
         <div class="strip-item reveal">
-          <span>What I do</span>
-          <strong>High-ticket closing for premium offers.</strong>
+          <span>Deal size</span>
+          <strong>$10,000 – $100,000+ per deal.</strong>
         </div>
         <div class="strip-item reveal">
-          <span>How I sell</span>
-          <strong>Calm, direct, zero gimmicks.</strong>
+          <span>Sales cycle</span>
+          <strong>From one call to a few weeks, depending on complexity.</strong>
         </div>
         <div class="strip-item reveal">
-          <span>Why it works</span>
-          <strong>Prospects feel heard, respected and ready to commit.</strong>
+          <span>Average conversion</span>
+          <strong>75%+ on qualified high-ticket calls.</strong>
         </div>
       </div>
     </section>
@@ -887,30 +887,45 @@
     <!-- PROOF -->
     <section class="block" id="proof">
       <div class="section-header">
-        <div class="section-eyebrow reveal">Proof (placeholder)</div>
-        <h2 class="section-title reveal">What brands say after we work together.</h2>
+        <div class="section-eyebrow reveal">Proof</div>
+        <h2 class="section-title reveal">What founders say after working with Dylan.</h2>
         <p class="section-sub reveal">
-          Swap these for real client quotes when you’re ready. The layout is built for short, sharp wins.
+          Real people. Real offers. Real revenue. Here’s what happens when a dedicated closer owns your high-ticket calls.
         </p>
       </div>
 
       <div class="proof-grid">
         <article class="proof-card reveal">
-          <p>“Dylan took over our high-ticket calls and within weeks I was out of the calendar chaos and back into building the business.”</p>
-          <div class="proof-name">Name here</div>
-          <div class="proof-role">Founder, Online Coaching Brand</div>
+          <p>
+            “We brought Dylan in because we had leads but no one who could actually close them. Within the first month,
+            he personally handled our calls and closed five enterprise clients we’d been chasing for ages. Watching him
+            work was a masterclass in sales control. Those deals alone pushed us past our quarterly target and put us
+            on a real path to 7 figures.”
+          </p>
+          <div class="proof-name">Jordan S.</div>
+          <div class="proof-role">Founder, B2B SaaS startup</div>
         </article>
 
         <article class="proof-card reveal">
-          <p>“No pressure, no weird tactics — just confident leadership on the call. Our close rate and client quality both jumped.”</p>
-          <div class="proof-name">Name here</div>
-          <div class="proof-role">CEO, Done-For-You Agency</div>
+          <p>
+            “I was burning money on ads and calls that went nowhere. Dylan stepped in and immediately took over our
+            high-ticket appointments. In the first 30 days, he closed more revenue than I had in the previous three
+            months. His closing precision is insane — he doesn’t just teach it, he actually does it. Thanks to him, we
+            finally broke out of the $30k/month plateau.”
+          </p>
+          <div class="proof-name">Maya L.</div>
+          <div class="proof-role">CEO, Digital Growth Systems</div>
         </article>
 
         <article class="proof-card reveal">
-          <p>“He doesn’t just close. He tells you what’s really happening in your pipeline so you can fix it fast.”</p>
-          <div class="proof-name">Name here</div>
-          <div class="proof-role">Owner, Education Company</div>
+          <p>
+            “We brought on Dylan to help validate our new premium offer, and he didn’t just give advice — he closed the
+            first wave of high-ticket customers himself. Twelve sales in the first six weeks, all done directly by him.
+            That early traction completely changed how we plan to scale this brand. His ability to lead a call and land
+            the deal is on another level.”
+          </p>
+          <div class="proof-name">Ethan R.</div>
+          <div class="proof-role">Founder, DTC wellness brand</div>
         </article>
       </div>
     </section>
@@ -989,7 +1004,7 @@
     );
     reveals.forEach((el) => observer.observe(el));
 
-    // Simple parallax tilt for the photo
+    // Simple parallax for the photo
     const frame = document.getElementById('photo-frame');
     window.addEventListener('scroll', () => {
       const rect = frame.getBoundingClientRect();
@@ -1007,4 +1022,5 @@
   </script>
 </body>
 </html>
+
 
